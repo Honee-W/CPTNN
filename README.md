@@ -1,4 +1,4 @@
-# CPTNN unofficial implementation
+# CPTNN unofficial pytorch implementation
 ## original paper: "CPTNN: CROSS-PARALLEL TRANSFORMER NEURAL NETWORK FOR TIME-DOMAIN SPEECH ENHANCEMENT"
 
 ### single-channel time domain speech enhancement neural network
