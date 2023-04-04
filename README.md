@@ -5,9 +5,9 @@
 ----
 
 ### How to use:
-  step1: add cptnn_new.py, TRANSFORMER.py, process_for_cptnn.py to your model directory. 
+  step1: add cptnn.py, TRANSFORMER.py, process_for_cptnn.py to your model directory. 
   
-  step2: import and ready to go.
+  step2: import cptnn in your training framework and ready to go.
   
   
 ### configuration:
