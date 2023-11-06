@@ -93,7 +93,9 @@ class MaskModule(nn.Module):
         self.up_conv = nn.Conv2d(in_channels, in_channels*2, (1, 1))
         self.activation1 = nn.PReLU()
         self.gated_conv = nn.Conv2d(in_channels*2, in_channels*2, (1, 1))
-        self.activation2 = nn.ReLU()
+        self.activation2 = nn.Sigmoid()
+        self.out_conv = nn.Conv2d(in_channels*2, in_channels*2, (1, 1))
+        self.activation3 = nn.ReLU()
 
     def forward(self, x):
         '''
@@ -102,8 +104,9 @@ class MaskModule(nn.Module):
         '''           
         x = self.activation1(self.up_conv(x))
         fac = self.activation2(self.gated_conv(x))
-
-        return x*fac
+        x = x*fac
+        x = self.activation3(self.out_conv(x))
+        return x
 
 class Upsampler(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size, stride, padding, dilation, upscale_factor):
