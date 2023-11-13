@@ -91,7 +91,7 @@ class CPTB(nn.Module):
         return: [batch, channels, num_frames, time_frames]
         '''
         B, C, F, L = x.shape 
-        local_feat = th.reshape(x.permute(0, 2, 1, 3), (-1, L, C))
+        local_feat = th.reshape(x.permute(0, 2, 3, 1), (-1, L, C))
         global_feat = th.reshape(x.permute(0, 3, 2, 1), (-1, F, C))
 
         local_feat = self.local_transformer(local_feat)
