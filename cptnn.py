@@ -124,7 +124,8 @@ class Upsampler(nn.Module):
         x = self.dense_block(x)
         x = self.sub_pixel_conv(x)
         x = self.pixel_shuffle(x)
-        x = th.sigmoid(x)
+        x = F.layer_norm(x, [x.shape[-1]])
+        x = F.prelu(x)        
         return x        
 
 class Decoder(nn.Module):
