@@ -105,8 +105,7 @@ class MaskModule(nn.Module):
         return: [batch, channels, num_frames, time_frames]
         '''           
         x = self.activation1(self.up_conv(x))
-        fac = self.activation2(self.gated_conv(x))
-        x = x*fac
+        x = self.activation2(self.gated_conv(x))
         x = self.activation3(self.out_conv(x))
         return x
 
