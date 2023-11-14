@@ -43,6 +43,8 @@ class Downsampler(nn.Module):
         for idx in range(len(self.net)):
             x = self.net[idx](x)
         x = self.conv(x)
+        x = F.layer_norm(x, [x.shape[-1]])
+        x = F.prelu(x)
         return x
 
 
